@@ -691,7 +691,6 @@ viewNode (CallNode { expression, result }) child =
                         }
                     )
                     child
-                    |> Debug.log ("highlight for " ++ expressionString)
             }
         , el
             [ width <| px Theme.rythm
