@@ -35,6 +35,10 @@ ALL_SRC = $(shell find src -type f -name '*.elm')
 dist/ui.js: src/UI.elm $(ALL_SRC) generated/Core/Basics.elm $(ALL_GENERATED)
 	elm make $< --output $@
 
+.PHONY: optimize
+optimize: src/UI.elm $(ALL_SRC) generated/Core/Basics.elm $(ALL_GENERATED)
+	elm make $< --optimize --output dist/ui.js
+
 .PHONY: measure
 measure: dist/ui.js
 	du -sh $^
